@@ -1,4 +1,4 @@
-# A C++ project template for macosx
+# A C++ 17 project template for macosx
 
 ## Includes
 
