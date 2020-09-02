@@ -1,0 +1,1 @@
+target_sources(Module PRIVATE protobuffs.pb.cc)

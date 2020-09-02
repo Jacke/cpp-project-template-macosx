@@ -1,0 +1,127 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Configure Debug",
+      "type": "shell",
+      "group": "build",
+      "command": "cmake",
+      "args": [
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCLANG_TIDY=OFF",
+        "-DTESTS=ON",
+        "-DCOVERAGE=ON",
+        "-DCOVERAGE_LCOV=ON",
+        "-DCOVERAGE_TEXT=OFF",
+        "-DCOVERAGE_HTML=OFF",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+        "-GNinja",
+        "-S",
+        ".",
+        "-B",
+        "build"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Configure Optimized",
+      "type": "shell",
+      "group": "build",
+      "command": "cmake",
+      "args": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCLANG_TIDY=OFF",
+        "-DTESTS=OFF",
+        "-DCOVERAGE=OFF",
+        "-DCOVERAGE_LCOV=OFF",
+        "-DCOVERAGE_TEXT=OFF",
+        "-DCOVERAGE_HTML=OFF",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=0",
+        "-GNinja",
+        "-S",
+        ".",
+        "-B",
+        "build"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Build",
+      "type": "shell",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "command": "cmake --build build",
+      "dependsOn": [
+        "Configure"
+      ],
+      "problemMatcher": {
+        "owner": "cpp",
+        "fileLocation": [
+          "absolute"
+        ],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    },
+    {
+      "label": "Run all test",
+      "type": "shell",
+      "group": "test",
+      "command": "cmake --build build --target test",
+      "dependsOn": "Build"
+    },
+    {
+      "label": "Run all tests with code coverage",
+      "type": "shell",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "command": "cmake --build build --target coverage",
+      "dependsOn": "Build"
+    },
+    {
+      "label": "Check format",
+      "type": "shell",
+      "group": "none",
+      "command": "tools/check-format.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "Fix format",
+      "type": "shell",
+      "group": "none",
+      "command": "tools/check-format.sh --fix",
+      "problemMatcher": []
+    },
+    {
+      "label": "Compile .proto",
+      "type": "shell",
+      "group": "none",
+      "command": "sh tools/compile_proto.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "Launch client side",
+      "type": "shell",
+      "group": "none",
+      "command": "./build/src/client/client",
+      "problemMatcher": []
+    },
+    {
+      "label": "Launch server side",
+      "type": "shell",
+      "group": "none",
+      "command": "./build/src/server/server",
+      "problemMatcher": []
+    }
+  ]
+}

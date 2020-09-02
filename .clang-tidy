@@ -1,0 +1,15 @@
+---
+Checks: >
+  clang-diagnostic-*,
+  clang-analyzer-*,
+  modernize-*,
+  -modernize-use-trailing-return-type,
+  readability-*,
+  -readability-braces-around-statements,
+  -readability-magic-numbers,
+  -readability-identifier-naming,
+  cppcoreguidelines-*'
+WarningsAsErrors: '*'
+HeaderFilterRegex: '.'
+AnalyzeTemporaryDtors: false
+FormatStyle: 'file'
