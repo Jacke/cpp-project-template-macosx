@@ -20,4 +20,6 @@
 - clangd
 - CMake
 
-## To enable protocol buffers edit src/module/CMakeLists.txt
+## To enable protocol buffers:
+
+Edit src/module/CMakeLists.txt
