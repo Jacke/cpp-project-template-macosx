@@ -21,4 +21,3 @@
 - CMake
 
 ## To enable protocol buffers edit src/module/CMakeLists.txt
-# cpp-project-template-macosx
