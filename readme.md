@@ -23,3 +23,6 @@
 ## To enable protocol buffers:
 
 Edit src/module/CMakeLists.txt
+
+## Todo
+- Update launch scripts to use lldb instead of gdb
