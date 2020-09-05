@@ -53,14 +53,10 @@
         "isDefault": true
       },
       "command": "cmake --build build",
-      "dependsOn": [
-        "Configure"
-      ],
+      "dependsOn": ["Configure"],
       "problemMatcher": {
         "owner": "cpp",
-        "fileLocation": [
-          "absolute"
-        ],
+        "fileLocation": ["absolute"],
         "pattern": {
           "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
           "file": 1,
@@ -110,17 +106,10 @@
       "problemMatcher": []
     },
     {
-      "label": "Launch client side",
+      "label": "Launch app",
       "type": "shell",
       "group": "none",
-      "command": "./build/src/client/client",
-      "problemMatcher": []
-    },
-    {
-      "label": "Launch server side",
-      "type": "shell",
-      "group": "none",
-      "command": "./build/src/server/server",
+      "command": "./build/src/app/app",
       "problemMatcher": []
     }
   ]

@@ -1,21 +1,9 @@
 {
   "editor.formatOnSave": true,
-  "clangd.arguments": [
-    "--compile-commands-dir=build"
-  ],
-  "coverage-gutters.coverageFileNames": [
-    "build/coverage/lcov.info"
-  ],
-  "coverage-gutters.coverageReportFileName": "build/coverage/html/index.html",
-  "coverage-gutters.showLineCoverage": true,
-  "coverage-gutters.showRulerCoverage": true,
   "files.exclude": {
     "**/.git": true,
     "**/.DS_Store": true,
-    "beast-websocket-examples/**/Jamfile": true,
-    "beast-websocket-examples/**/CMakeLists.txt": true,
-    "default.profraw": true,
-    // Warning, don't forget about these!
+    "default.profraw": true
   },
-  "git.ignoreLimitWarning": true,
+  "git.ignoreLimitWarning": true
 }
