@@ -22,6 +22,6 @@ include(cmake/boost.cmake)
 include(cmake/spdlog.cmake)
 include(cmake/protobuf.cmake)
 include(cmake/sfml.cmake)
-include(cmake/includewhatyouuse.cmake)
+include(cmake/include-what-you-use.cmake)
 
 add_subdirectory(src)
