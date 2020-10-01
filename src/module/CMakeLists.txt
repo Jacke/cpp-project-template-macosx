@@ -10,3 +10,4 @@ add_subdirectory(libs)
 
 add_project_warnings(Module)
 add_rapidcheck(Module)
+add_includewhatyouuse(Module)
