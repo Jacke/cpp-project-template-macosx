@@ -53,10 +53,14 @@
         "isDefault": true
       },
       "command": "cmake --build build",
-      "dependsOn": ["Configure"],
+      "dependsOn": [
+        "Configure"
+      ],
       "problemMatcher": {
         "owner": "cpp",
-        "fileLocation": ["absolute"],
+        "fileLocation": [
+          "absolute"
+        ],
         "pattern": {
           "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
           "file": 1,
@@ -102,7 +106,7 @@
       "label": "Compile .proto",
       "type": "shell",
       "group": "none",
-      "command": "sh tools/compile_proto.sh",
+      "command": "sh tools/compile-proto.sh",
       "problemMatcher": []
     },
     {

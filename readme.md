@@ -14,7 +14,6 @@
 ## Suggested environment is VSCode with the following extensions
 
 - Task Runner
-- vscode-proto3
 - Clang-Format
 - Clang-Tidy
 - clangd
@@ -23,6 +22,3 @@
 ## To enable protocol buffers:
 
 Edit src/module/CMakeLists.txt
-
-## Todo
-- Update launch scripts to use lldb instead of gdb
