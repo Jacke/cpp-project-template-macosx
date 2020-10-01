@@ -12,6 +12,7 @@ option(RC_ENABLE_TESTS "Build RapidCheck tests" OFF)
 option(RC_ENABLE_EXAMPLES "Build RapidCheck examples" OFF)
 option(RC_ENABLE_RTTI "Build RapidCheck with RTTI" ON)
 
+
 if(MSVC)
   # /bigobj - some object files become very large so we need this
   # /wd4503 - truncation of decorated name, not much we can do about it so
@@ -29,6 +30,7 @@ else()
     endif()
   endif()
 endif()
+
 
 # RapidCheck will be built either as a static or a dynamic library depending on the CMake global
 # variable BUILD_SHARED_LIBS (https://cmake.org/cmake/help/latest/variable/BUILD_SHARED_LIBS.html).
@@ -122,3 +124,5 @@ add_subdirectory(extras)
 # Install the export file specifying all the targets for RapidCheck
 install(EXPORT rapidcheckConfig DESTINATION share/rapidcheck/cmake)
 export(EXPORT rapidcheckConfig FILE rapidcheckConfig.cmake)
+
+target_compile_options(rapidcheck PUBLIC -Wno-sign-conversion)
