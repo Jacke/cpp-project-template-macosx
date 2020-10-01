@@ -9,8 +9,8 @@ set(COVERAGE_PATH ${PROJECT_BINARY_DIR}/coverage)
 if (COVERAGE)
   message(STATUS "Code coverage is enabled. TEXT=${COVERAGE_TEXT}, LCOV=${COVERAGE_LCOV}, HTML=${COVERAGE_HTML}")
 
-  find_program(LLVM_COV_PATH NAMES llvm-cov REQUIRED)
-  find_program(LLVM_PROFDATA_PATH NAMES llvm-profdata REQUIRED)
+  find_program(LLVM_COV_PATH NAMES xcrun REQUIRED)
+  find_program(LLVM_PROFDATA_PATH NAMES xcrun REQUIRED)
 
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-instr-generate -fcoverage-mapping")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-instr-generate -fcoverage-mapping")
@@ -33,7 +33,7 @@ function(add_coverage TARGET)
 
     add_custom_target(coverage-profdata
       COMMAND ${CMAKE_COMMAND} -E env LLVM_PROFILE_FILE="${COVERAGE_PATH}/test_%p.profraw" ${CMAKE_CTEST_COMMAND} ${CMAKE_CTEST_ARGUMENTS}
-      COMMAND ${LLVM_PROFDATA_PATH} merge -sparse ${COVERAGE_PATH}/*.profraw -o ${COVERAGE_PROFDATA}
+      COMMAND ${LLVM_PROFDATA_PATH} llvm-profdata merge -sparse ${COVERAGE_PATH}/*.profraw -o ${COVERAGE_PROFDATA}
       WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
     )
 
@@ -41,7 +41,7 @@ function(add_coverage TARGET)
 
     if (COVERAGE_TEXT)
       add_custom_target(coverage-text
-        COMMAND ${LLVM_COV_PATH} report `cat ${COVERAGE_TARGETS}` -instr-profile=${COVERAGE_PROFDATA} -ignore-filename-regex="${COVERAGE_EXCLUDE_REGEX}"
+        COMMAND ${LLVM_COV_PATH} llvm-cov report `cat ${COVERAGE_TARGETS}` -instr-profile=${COVERAGE_PROFDATA} -ignore-filename-regex="${COVERAGE_EXCLUDE_REGEX}"
         DEPENDS coverage-profdata
       )
       add_dependencies(coverage coverage-text)
@@ -49,7 +49,7 @@ function(add_coverage TARGET)
 
     if (COVERAGE_HTML)
       add_custom_target(coverage-html
-        COMMAND ${LLVM_COV_PATH} show `cat ${COVERAGE_TARGETS}` -instr-profile=${COVERAGE_PROFDATA} -show-line-counts-or-regions -output-dir=${COVERAGE_PATH}/html -format="html" -ignore-filename-regex="${COVERAGE_EXCLUDE_REGEX}"
+        COMMAND ${LLVM_COV_PATH} llvm-cov show `cat ${COVERAGE_TARGETS}` -instr-profile=${COVERAGE_PROFDATA} -show-line-counts-or-regions -output-dir=${COVERAGE_PATH}/html -format="html" -ignore-filename-regex="${COVERAGE_EXCLUDE_REGEX}"
         DEPENDS coverage-profdata
       )
       add_dependencies(coverage coverage-html)
@@ -57,7 +57,7 @@ function(add_coverage TARGET)
 
     if (COVERAGE_LCOV)
       add_custom_target(coverage-lcov
-        COMMAND ${LLVM_COV_PATH} export `cat ${COVERAGE_TARGETS}` -format="lcov" -instr-profile=${COVERAGE_PROFDATA} -ignore-filename-regex="${COVERAGE_EXCLUDE_REGEX}" > ${COVERAGE_PATH}/lcov.info
+        COMMAND ${LLVM_COV_PATH} llvm-cov export `cat ${COVERAGE_TARGETS}` -format="lcov" -instr-profile=${COVERAGE_PROFDATA} -ignore-filename-regex="${COVERAGE_EXCLUDE_REGEX}" > ${COVERAGE_PATH}/lcov.info
         DEPENDS coverage-profdata
       )
       add_dependencies(coverage coverage-lcov)
