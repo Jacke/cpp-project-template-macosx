@@ -13,7 +13,7 @@
 - Rapidcheck
 - include-what-you-use (must be installed, can use homebrew)
 - Doxygen (must be installed, can use homebrew) #Untested, TODO: test
-- A coverage module (works with lcov, can use homebrew)
+- A coverage module (uses xcode)
 
 
 ## Suggested environment is VSCode with the following extensions
