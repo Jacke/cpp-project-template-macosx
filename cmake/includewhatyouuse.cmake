@@ -9,6 +9,6 @@ else()
 endif()
 
 function(add_includewhatyouuse EXE_OR_LIB)
-    set_property(${EXE_OR_LIB} PROPERTY CXX_INCLUDE_WHAT_YOU_USE ${iwyu_path})
+    set_property(TARGET ${EXE_OR_LIB} PROPERTY CXX_INCLUDE_WHAT_YOU_USE ${iwyu_path})
 endfunction()
 
