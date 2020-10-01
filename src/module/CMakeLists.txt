@@ -6,9 +6,7 @@ add_subdirectory(mocks)
 add_subdirectory(tests)
 add_subdirectory(libs)
 
-
-
 add_project_warnings(Module)
 add_rapidcheck(Module)
 add_includewhatyouuse(Module)
-add_coverage(module-coverage Module module-coverage)
+add_coverage(Module)
