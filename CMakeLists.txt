@@ -23,5 +23,7 @@ include(cmake/spdlog.cmake)
 include(cmake/protobuf.cmake)
 include(cmake/sfml.cmake)
 include(cmake/include-what-you-use.cmake)
+include(cmake/doxygen.cmake)
+include(cmake/coverage.cmake)
 
 add_subdirectory(src)
