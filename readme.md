@@ -15,15 +15,6 @@
 - Doxygen (must be installed, can use homebrew) #Untested, TODO: test
 - A coverage module (uses xcode)
 
-
-## Suggested environment is VSCode with the following extensions
-
-- Task Runner
-- Clang-Format
-- Clang-Tidy
-- clangd
-- CMake
-
 ## To enable protocol buffers:
 
 Edit src/module/CMakeLists.txt
