@@ -72,14 +72,14 @@
       }
     },
     {
-      "label": "Run all test",
+      "label": "Run all gtest tests",
       "type": "shell",
       "group": "test",
       "command": "cmake --build build --target test",
       "dependsOn": "Build"
     },
     {
-      "label": "Run all tests with code coverage",
+      "label": "Run all gtest tests with code coverage",
       "type": "shell",
       "group": {
         "kind": "test",
