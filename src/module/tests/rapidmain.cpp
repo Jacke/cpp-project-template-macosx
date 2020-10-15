@@ -3,6 +3,9 @@
 #include <vector>
 #include <algorithm>
 
+/**
+Rapid check test binary (not gtest)
+*/
 int main() {
   rc::check("double reversal yields the original value",
             [](const std::vector<int> &l0) {

@@ -6,7 +6,7 @@
 using namespace ::testing;
 
 /*
-Rapidcheck example
+Rapidcheck example with Gtest - note: does not show in TestMate
 */
 // If you don't have any arguments, you have to have empty parentheses
 RC_GTEST_PROP(RapidcheckTest, inRangeValueIsInRange, ()) {
