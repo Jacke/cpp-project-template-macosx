@@ -18,3 +18,7 @@
 ## To enable protocol buffers:
 
 Edit src/module/CMakeLists.txt
+
+
+## TODO:
+There is an issue with vscode c++ TestMate extension not detecting rapidcheck tests
