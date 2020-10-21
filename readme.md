@@ -22,3 +22,9 @@ Edit src/module/CMakeLists.txt
 
 ## TODO:
 There is an issue with vscode c++ TestMate extension not detecting rapidcheck tests
+
+## Acknowledgements
+This project is adapted from
+
+- https://github.com/lefticus/cpp_starter_project
+- https://github.com/IvanSafonov/cpp-boilerplate
